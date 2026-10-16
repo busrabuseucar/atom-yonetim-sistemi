@@ -66,3 +66,7 @@ npm run test:e2e
 16 Ekim 2026 güvenlik advisor kontrolünde **sızdırılmış parola korumasının kapalı olduğu** uyarısı var; “tüm güvenlik kontrolleri temiz” iddiası kullanılmaz. [Supabase parola koruması açıklaması](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection).
 
 [Teknik tasarım ve sınırlar](docs/TECHNICAL_DESIGN.md)
+
+## İşletim
+
+[İşletim ve sürüm doğrulama](docs/OPERATIONS.md) — kurulum, veri saklama, yayın, geri dönüş ve doğrulama kapsamı.
