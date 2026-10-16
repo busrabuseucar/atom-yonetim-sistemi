@@ -91,9 +91,8 @@ test("owner resubmits revision with version and logout clears the workspace", as
   page.on("pageerror", (e) => errors.push(e.message));
   const { writes, session } = await fixture(page);
   await page.getByRole("button", { name: "İncele", exact: true }).click();
-  await page
-    .getByLabel("Sorun ve yöntem", { exact: true })
-    .fill("Düzeltilmiş yöntem");
+  await expect(page.getByRole("heading", { name: "Revizyonu düzenle", exact: true })).toBeVisible();
+  await page.locator('textarea[name="summary"]').fill("Düzeltilmiş yöntem");
   await page
     .getByRole("button", { name: "Revizyonu yeniden gönder", exact: true })
     .click();
@@ -141,3 +140,5 @@ test("viewer has no create, review or resubmit controls", async ({ page }) => {
     page.getByRole("button", { name: "Değerlendirmeyi kaydet", exact: true }),
   ).toHaveCount(0);
 });
+
+test.afterEach(async ({page}, testInfo) => { if (testInfo.status !== testInfo.expectedStatus) console.log(await page.locator("body").innerText()); });
